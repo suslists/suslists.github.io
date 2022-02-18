@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams, Outlet } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../../firebase";
 import { doc, getDoc } from "firebase/firestore"
 import './index.css';
+import HomeBody from './home-body'
+import ItemPage from './item-page'
 
 function Home() {
+  const { itemId } = useParams()
+  console.log(`zzzprop2s`, itemId)
   const [user, loading, error] = useAuthState(auth)
   const [items, setItems] = useState([])
 
@@ -31,12 +35,15 @@ function Home() {
       alert("An error occured while fetching the database");
     }
   }
+  
   return (
     <>
       Home<br/>
       <Link to="/dashboard">admin</Link>
+      <HomeBody items={items} />
       {
-        items.map(i => (<div>{i.title}</div>))
+        itemId &&
+        <ItemPage items = {items} itemId={itemId} />
       }
     </>
   );
