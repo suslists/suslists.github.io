@@ -1,11 +1,11 @@
 import React from 'react'
 import './index.css'
-import { Link, useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 export default function HomeBody (props) {
     const {items} = props
     return (
-        <div className="flex">
+        <div className="appBody">
         {
             items.map((item) => {
                 return (
@@ -27,7 +27,14 @@ function Item(props) {
         <div>
             {/* <div className="font-10">{item.title}</div> */}
             <Link to={`/item/${item.id}`}>
-                <img src={item.image} style={{width:"100px", height:"150px", objectFit: 'cover'}} alt="thumbnail" class="rounded-sm" />
+                <div className="itemCard">
+                    <img
+                        src={item.image}
+                        style={{width:"100px", height:"150px", objectFit: 'cover'}}
+                        className="thumbnail"
+                        alt={item.title}
+                    />
+                </div>
             </Link>
         </div>
     )

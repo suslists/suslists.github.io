@@ -1,0 +1,29 @@
+body {
+    background: black;
+    color: orange;
+    .appContainer {
+        width: 90%;
+        max-width: 800px;
+        margin: 0 auto;
+        .appHeader {
+            .appTitle {
+                
+            }
+        }
+        .appBody {
+            display: flex;
+            flex-wrap: wrap;
+            .itemCard {
+                margin: 10px 4px;
+                img.thumbnail {
+                    border-radius: 4px;
+                    filter: saturate(0);
+                    transition: filter 0.2s ease-in;
+                    &:hover {
+                        filter: saturate(1);
+                    }
+                }
+            }
+        }
+    }
+}

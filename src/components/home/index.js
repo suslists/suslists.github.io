@@ -37,15 +37,17 @@ function Home() {
   }
   
   return (
-    <>
-      Home<br/>
-      <Link to="/dashboard">admin</Link>
+    <div className="appContainer">
+      <div className="appHeader">
+        <div className="appTitle">su'slists</div>
+        <Link to="/dashboard" className="adminLink">only for su</Link>
+      </div>
       <HomeBody items={items} />
       {
         itemId &&
         <ItemPage items = {items} itemId={itemId} />
       }
-    </>
+    </div>
   );
 }
 
